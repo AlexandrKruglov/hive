@@ -1,0 +1,45 @@
+{% extends 'honeycombs/base.html'%}
+{% block content %}
+{% load m_filter %}
+
+<div class="container background=yellow">
+
+    <div class="row">
+        <div class="col-2">
+            <img src="/media/Our_Solutions.png" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700"
+                 height="500" loading="lazy">
+        </div>
+        <div class="col-2">
+            <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Цифровой улий</h1>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 mb-2 mb-md-0">
+        <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none">
+            <svg class="bi" width="40" height="32" role="img" aria-label="Bootstrap">
+                <use xlink:href="#bootstrap"/>
+            </svg>
+        </a>
+    </div>
+    <div class="container-fluid">
+        <h1 class="display-1 text-center">{{ honeycombs.name }}</h1>
+        <div class="row" >
+            <div class="col-2">
+                <img src="{{ honeycombs.image | media_filter }}" class="img-fluid" alt="..." width="400" height="200"
+                     loading="lazy"></div>
+
+            <div class="col-4">
+                <h1 class="h5">{{ honeycombs.description }}</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container themed-container text-center">_</div>
+<div class="container">
+<div class="btn-group">
+      <a class="btn btn-primary" href="{% url 'honeycombs:update' honeycombs.pk %}" role="button">Редактировать</a>
+      <a class="btn btn-danger" href="{% url 'honeycombs:delete' honeycombs.pk %}" role="button">Удалить</a>
+                </div>
+    </div>
+{% endblock %}
